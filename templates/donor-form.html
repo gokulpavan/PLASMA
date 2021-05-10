@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Co-Plasma</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="./static/assets/css/main.css" />
+    <link rel="stylesheet" href="./static/assets/css/gokul.css" />
+
+</head>
+<style type="text/css">
+    .spinner-wrapper{
+    width: 100%;
+    height: 100%;
+   
+   
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .spinner {
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+  }
+  
+  .spinner::before,
+  .spinner:after{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+  }
+  
+  .spinner:before {
+    width: 100%;
+    height: 100%;
+    background-image:linear-gradient(90deg, #008080 0%,#2F4F4F 100% );
+    animation: spin .5s infinite linear;
+  }
+  
+  .spinner:after {
+    width: 90%;
+    height: 90%;
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+   @keyframes slideInFromLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+section{
+    animation: 1.25s ease-out 0s 1 slideInFromLeft
+}
+</style>
+
+
+<body class="is-preload">
+
+  
+
+    <div id="container"></div>
+    <div id="page-wrapper">
+               
+
+
+        <!-- Main -->
+        <section id="main" class="container medium">
+            <header>
+                <h2 id='thank'>Plasma Donor Registration Form</h2>
+                <p id="p">Plesae fill out this form to REGISTER your interest in donating plasma.</p>
+            </header>
+            <div class="box">
+                 <div class="spinner-wrapper" id="spinner" style="display: none;">
+                    <div class="spinner">    
+                    </div>
+                </div>
+                
+                <h1 id="head1"></h1>
+                <form method="post" action="update" method="POST" id="post">
+                    <div class="row gtr-50 gtr-uniform">
+                        <div class="col-6 col-12-mobilep">
+                            <input type="text" name="name" id="name" value="" required placeholder="Name" />
+                        </div>
+                        <div class="col-6 col-12-mobilep">
+                            <input type="email" name="email" id="email" value="" required placeholder="Email" />
+                        </div>
+                        <div class="col-6 col-12-mobilep">
+                            <input type="text" minlength="10" maxlength="10" name="phonenumber" id="number" required value="" placeholder="Enter Contact Number" />
+                        </div>
+                        <div class="col-6 col-12-mobilep">
+                            <select name="Bloodgroup" id="bloodgroup" value="" placeholder="Blood group">
+                            <option selected disabled>select blood group</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            </select>
+                        </div>
+                        <div class="col-6 col-12-mobilep">
+                            <input type="text" name="state" id="state" value="" required placeholder="State" />
+                        </div>
+                        <div class="col-6 col-12-mobilep">
+                            <select type="" name="city" id="city" value="" required placeholder="City">
+                                <option selected disabled>Select city</option>
+                                <option>hyderabad</option>
+                                <option>delhi</option>
+                                <option>chennai</option>
+                                <option>bengaluru</option>
+                                <option>kolkata</option>
+                                <option>kochi</option>
+                                <option>vizag</option>
+                                <option>pune</option>
+                            </select>
+                        </div>
+                        <div class="col-6 col-12-mobilep">
+                            <input type="text" onfocus="(this.type='date')" name="date" id="date" value="" required placeholder="Date of recovery" />
+                        </div>
+                        <div class="col-6 col-12-mobilep">
+                            
+                            <input type="number" min="18" max="60" name="age" id="age" value="" required placeholder="Age" />
+                        </div>
+                        
+                        </div>
+                        <div class="col-12" style="margin-top: 50px">
+                            <ul class="actions special">
+                                <li><input type="button" value="submit" onclick="loadXMLDoc()"  /></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                <li><a href="#" class="icon brands fa-google-plus"><span class="label">Google+</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Untitled. All rights reserved.</li>
+                <li>Design: <a href="">Nihar Raghavendra and GokulPavan</a></li>
+            </ul>
+        </footer>
+
+    </div>
+ 
+<script type="text/javascript">
+    
+     function loadXMLDoc()
+    {
+        
+        var req = new XMLHttpRequest()
+        req.onreadystatechange = function()
+        {
+            if (req.readyState == 4)
+            {
+                var response = req.responseText
+                if ( response.includes("already")) {
+                    const options = {
+                                    settings: {
+                                    duration: 2000,
+                                                }
+                                                };
+                                    iqwerty.toast.toast(response, options);
+                                    
+
+                    }
+                else if ( response.includes("Please")) {
+                    const options = {
+                                    settings: {
+                                    duration: 2000,
+                                                }
+                                                };
+                                    iqwerty.toast.toast(response, options);
+                }
+                else{
+                     document.getElementById('post').setAttribute("style","display:none;")
+                     document.getElementById('p').setAttribute("style","display:none;")
+                     document.getElementById('spinner').setAttribute("style","display:;")
+                    setTimeout(function () {
+                    document.getElementById('spinner').setAttribute("style","display:none;")
+                    document.getElementById('head1').innerHTML = response
+                    document.getElementById('thank').innerHTML = "Thank You for registration"
+                },3000)
+                   
+
+                }
+
+            }
+            
+            }
+        
+    
+        req.open('POST', '/update')
+        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        var name = document.getElementById('name').value
+        var email = document.getElementById('email').value
+        var number = document.getElementById('number').value
+        var bg = document.getElementById('bloodgroup').value
+        var state = document.getElementById('state').value
+        var city = document.getElementById('city').value
+        var date = document.getElementById('date').value
+        var age = document.getElementById('age').value
+        var postVars = 'name='+name+'&email='+email+'&age='+age+'&phonenumber='+number+'&Bloodgroup='+bg+'&state='+state+'&city='+city+'&date='+date
+       if (name&&number&&bg&&city&&state&&email&&age) {
+            
+            
+                                if(number.length<10){
+                                     const options = {
+                                                        settings: {
+                                                        duration: 2000,
+                                                                    }
+                                                                    };
+                                                        iqwerty.toast.toast("Invalid mobile number", options);
+
+                                }
+                                else{
+                                    req.send(postVars)
+                                            }  
+                                            }         
+            else{
+            const options = {
+                                    settings: {
+                                    duration: 2000,
+                                                }
+                                                };
+                                    iqwerty.toast.toast("Please fill the form Completely", options);
+        
+    }
+
+        console.log(postVars)
+       
+        
+        return false
+        
+}
+</script>
+    <!-- Scripts -->
+    <script src="./static/assets/js/jquery.min.js"></script>
+    <script src="./static/assets/js/jquery.dropotron.min.js"></script>
+    <script src="./static/assets/js/jquery.scrollex.min.js"></script>
+    <script src="./static/assets/js/browser.min.js"></script>
+    <script src="./static/assets/js/breakpoints.min.js"></script>
+    <script src="./static/assets/js/util.js"></script>
+    <script src="./static/assets/js/main.js"></script>
+    <script src="./static/assets/js/toast.min.js"></script>
+</body>
+
+</html>

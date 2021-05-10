@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>CO-PLASMA</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="./static/assets/css/main.css" />
+</head>
+
+
+<body onload="loadDoc()" class="landing is-preload">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header" class="alt">
+
+
+        </header>
+
+        <!-- Banner -->
+        <section id="banner" class="page-main">
+            <h2>CO-PLASMA</h2>
+            <p>DONATE OR GET PLASMA</p>
+            <ul class="actions special text-wrapper">
+                <li><a href="donor-form.html" class="button primary">DONATE PLASMA</a></li>
+                <li><a href="require-form.html" class="button">GET PLASMA</a></li>
+            </ul>
+        </section>
+
+        <!-- Main -->
+        <section id="main" class="container">
+
+            <section class="box special">
+                <header class="major">
+                    <h2><u>Eligiblity Criteria to Donate Plasma</u></h2>
+                    <ul>
+
+                        <li>Plasma donors should be at least 18 years old</li>
+                        <li>Plasma donors should weigh at least 110 pounds or 50 kilograms</li>
+                        <li>Must pass a medical examination</li>
+                        <li>Complete an extensive medical history screening</li>
+                        <li>Test non-reactive for transmissible viruses including hepatitis and HIV</li>
+                        <li>Follow a recommended diet including 50 to 80 grams of daily protein</li>
+                    </ul>
+
+                </header>
+
+            </section>
+            <section id="cta">
+
+                <h2>Click here to find Vaccine centers near you</h2>
+
+                <li> <a href="https://nihar-raghavendra.github.io/vaccine-finder/" class="button" target="_blank"><b>FIND</button> </b></a></li>
+
+
+
+
+
+
+            </section>
+
+            <section class="box special features">
+                <div class="features-row">
+                    <section>
+
+                        <h3>Active cases</h3>
+                        <h2 id="cases" style="color: red"></h2>
+                    </section>
+                    <section>
+
+                        <h3>Recovered cases</h3>
+                        <h2 id="recovered" style="color: green"></h2>
+                    </section>
+                </div>
+                <div class="features-row">
+                    <section>
+
+                        <h3>newly Active cases</h3>
+                        <h2 id="Active" style="color: red"></h2>
+                    </section>
+                    <section>
+
+                        <h3>Newly Recovered cases</h3>
+                        <h2 id="newrec" style="color: green"></h2>
+                    </section>
+                </div>
+            </section>
+
+
+            <!-- CTA -->
+
+            <!-- Footer -->
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://www.worldometers.info/coronavirus/country/india/" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="https://www.facebook.com/MyGovIndia/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                    <li><a href="https://www.instagram.com/mygovindia/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="https://github.com/Nihar-raghavendra" class="icon brands fa-github"><span class="label">Github Nihar</span></a></li>
+                     <li><a href="https://github.com/gokulpavan" class="icon brands fa-github"><span class="label">Github Gokul</span></a></li>
+                   
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; Untitled. All rights reserved.</li>
+                    <li>Design By: <a>Nihar Raghavendra and GokulPavan</a></li>
+                </ul>
+            </footer>
+
+    </div>
+    <script type="text/javascript">
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    data = JSON.parse(this.responseText)
+                    document.getElementById("cases").innerHTML =
+                        data.totalCases;
+                    document.getElementById("recovered").innerHTML =
+                        data.recovered;
+                    document.getElementById("Active").innerHTML =
+                        data.activeCases;
+                    document.getElementById("newrec").innerHTML =
+                        data.recoveredNew;
+                }
+            };
+            xhttp.open("GET", "https://api.apify.com/v2/key-value-stores/toDWvRj1JpTXiM8FF/records/LATEST?disableRedirect=true", true);
+            xhttp.send();
+        }
+    </script>
+<script type="text/javascript">
+    
+
+window.addEventListener("load", () => {
+ document.querySelector("body").classList.add("loaded"); 
+});
+</script>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

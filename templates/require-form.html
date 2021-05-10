@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Co-plasma</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="./static/assets/css/main.css" />
+    <link rel="stylesheet" href="./static/assets/css/gokul.css" />
+</head>
+<style type="text/css">
+
+    .spinner-wrapper{
+    width: 100%;
+    height: 100%;
+   
+   
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .spinner {
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+  }
+  
+  .spinner::before,
+  .spinner:after{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+  }
+  
+  .spinner:before {
+    width: 100%;
+    height: 100%;
+    background-image:linear-gradient(90deg, #008080 0%,#2F4F4F 100% );
+    animation: spin .5s infinite linear;
+  }
+  
+  .spinner:after {
+    width: 90%;
+    height: 90%;
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  
+
+   @keyframes slideInFromLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+section{
+    animation: 1.25s ease-out 0s 1 slideInFromLeft
+}
+</style>
+
+
+
+<body class="is-preload">
+    <div id="page-wrapper">
+
+
+
+        <!-- Main -->
+        <section id="main" class="container medium">
+            <header>
+                <h2 id='thank'>Plasma Requirment Registration Form</h2>
+                <p id="p">Please fill out this form to post your query .</p>
+            </header>
+            <div class="box">
+                 <div class="spinner-wrapper" id="spinner" style="display: none;">
+                    <div class="spinner">    
+                    </div>
+                </div>
+               <div class="table-wrapper" id="tablediv" style="display: none;">
+                    <table >
+                        <table>
+                            <tbody id="tbody">
+                                
+                            </tbody>
+                            <thead>
+                            <td>NAME</td>
+                            <td>Plasma donation registered date</td>
+                                <td>Contact Email</td>
+                                <td>Phone number</td>
+                                <td>Blood Group</td>
+                                <td>State</td>
+                                <td>City</td>
+                                <td>Date of Recovery from Covid</td>
+                                <td>Age of donor<td>
+                                
+                                </thead>
+                        </table>
+                        
+                    </table>
+                </div>
+                
+                <form  id="post">
+                    <div class="row gtr-50 gtr-uniform">
+                         <div class="col-6 col-12-mobilep">
+                                <input type="text" name="name" id="name" value="" placeholder="Patitent Name" />
+                            </div>
+
+                            <div class="col-6 col-12-mobilep">
+                                <input type="text" name="phone number " id="number" value="" placeholder="Number" />
+                            </div>
+                            <div class="col-6 col-12-mobilep">
+                                 <select name="Bloodgroup" id="bloodgroup" value="" placeholder="Blood group">
+                            <option selected disabled>select blood group</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            </select>
+                            </div>
+                            
+                            <div class="col-6 col-12-mobilep">
+                                <select type="" name="city" id="city" value="" required placeholder="City">
+                                    <option selected disabled>Select city</option>
+                                    <option>hyderabad</option>
+                                    <option>delhi</option>
+                                    <option>chennai</option>
+                                    <option>bengaluru</option>
+                                    <option>kolkata</option>
+                                    <option>kochi</option>
+                                    <option>vizag</option>
+                                    <option>pune</option>
+                                </select>
+                            </div>
+
+
+                        <div class="col-12">
+                            <ul class="actions special">
+                                <li><input type="button" value="submit" onclick="loadXMLDoc()" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+              
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+               
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Untitled. All rights reserved.</li>
+                <li>Design: <a href="">Nihar Raghavendra and GokulPavan</a></li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="./static/assets/js/jquery.min.js"></script>
+    <script src="./static/assets/js/jquery.dropotron.min.js"></script>
+    <script src="./static/assets/js/jquery.scrollex.min.js"></script>
+    <script src="./static/assets/js/browser.min.js"></script>
+    <script src="./static/assets/js/breakpoints.min.js"></script>
+    <script src="./static/assets/js/util.js"></script>
+    <script src="./static/assets/js/main.js"></script>
+    <script src="./static/assets/js/toast.min.js"></script>
+    <script type="text/javascript">
+    function loadXMLDoc()
+    {
+        
+        var req = new XMLHttpRequest()
+        req.onreadystatechange = function()
+        {
+            if (req.readyState == 4)
+            {
+                var response = JSON.parse(req.responseText)
+                console.log(response)
+                if ( response.length==0) {
+                    const options = {
+                                    settings: {
+                                    duration: 2000,
+                                                }
+                                                };
+                                    iqwerty.toast.toast("No data found", options);
+                                    
+
+                    }
+               
+                else{
+                    data = response
+                    if (data.length > 0) {
+                       
+                     document.getElementById('post').setAttribute("style","display:none;")
+                      document.getElementById('p').setAttribute("style","display:none;")
+                     
+                     document.getElementById('spinner').setAttribute("style","display:;")
+                    setTimeout(function () {
+                    document.getElementById('spinner').setAttribute("style","display:none;")
+                    document.getElementById('thank').innerHTML = "These are list of people who are willing to donate"
+                     document.getElementById('tablediv').setAttribute("style","display:;max-height: 500px;overflow-y: auto;")
+                     table = document.getElementById('tbody')
+                     for(var i=0;i<data.length;i++){
+                            name = data[i].Name
+                             email = data[i].Email
+                               phn = data[i].phnnum
+                               bg = data[i].bgroup
+                                state = data[i].State
+                                 city = data[i].City
+                                  dor = data[i].DoR
+                                   age = data[i].Age
+                                    dopr = data[i].adddate
+
+                                    table.innerHTML += '<tr>'+'<td>'+name+'</td>'+'<td>'+dopr+'</td>'+'<td>'+email+'</td>'+'<td>'+phn+'</td>'+'<td>'+bg+'</td>'+'<td>'+state+'</td>'+'<td>'+city+'</td>'+'<td>'+dor+'</td>'+'<td>'+age+'</td>'+'</tr>'
+
+
+                        
+                    }
+                     
+                },3000)
+                }
+                   
+
+                }
+
+            }
+            
+            }
+        
+    
+        req.open('POST', '/requirement_form')
+        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        var name = document.getElementById('name').value
+        var number = document.getElementById('number').value
+        var bg = document.getElementById('bloodgroup').value
+        var city = document.getElementById('city').value
+        if (name&&number&&bg&&city) {
+            var postVars = 'name='+name+'&phonenumber='+number+'&Bloodgroup='+bg+'&city='+city
+            
+            if(number.length<10){
+                 const options = {
+                                    settings: {
+                                    duration: 2000,
+                                                }
+                                                };
+                                    iqwerty.toast.toast("Invalid mobile number", options);
+
+            }
+            else{
+                req.send(postVars)
+            }
+
+        }
+        else{
+            const options = {
+                                    settings: {
+                                    duration: 2000,
+                                                }
+                                                };
+                                    iqwerty.toast.toast("Please fill the form correctly", options);
+        
+    }
+        
+        return false
+        
+}
+    </script>
+    <div id="navButton">
+                    <a href="index.html" class=""></a>
+                </div>
+</body>
+
+</html>
